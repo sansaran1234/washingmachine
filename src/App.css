@@ -1,0 +1,354 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+@font-face {
+  font-family: Kanit;
+  font-style: normal;
+  font-weight: 300;
+  font-display: fallback;
+  src: url("../public/font/Kanit-Regular.ttf") format("TrueType");
+}
+html,body{
+  background-color: #FBE4C9 !important;
+  font-family: Kanit !important;
+}
+.App-header {
+  background-color: #003674;
+  background: url(../public/imgs/bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.roomPage{
+  /* background-color: #FBE4C9; */
+  min-height: 100vh;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+.headerName{
+  font-size: 2rem;
+  text-align: center;
+}
+
+.roomPage .container-fluid{
+ height: 100vh;
+}
+.washingMachineZone{
+  background-color: #FBE4C9;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.washingMachineZone .row{
+  width: 100%;
+}
+.clothesDryerZone{
+  background-color: #FF5D5D;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+}
+.clothesDryerZone .row{
+  width: 100%;
+}
+.BoxWashingMachine{
+  background-color: #FBE4C9;
+  padding-top: 1.5rem;
+}
+.BoxClothesDryerZone{
+  background-color: #FF5D5D;
+  padding-top: 1.5rem;
+}
+.App-link {
+  color: #FBE4C9;
+}
+.App-header{
+  padding-right: 47rem;
+}
+.App-header h1{
+  color: #222;
+  /* background-color: #429aff; */
+  font-size: 2.5rem;
+  margin: 0;
+}
+.App-header h2{
+  color: #222;
+  /* background-color: #429aff; */
+  font-size: 4rem;
+}
+.washingMachine{
+  width: 350px;
+  height: 400px;
+  background: transparent;
+  /* background: url(../public/imgs/washing-machine-svgrepo-com.svg); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: -11px;
+  background-position-x: center;
+  padding: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.658);
+  border-radius: 8px;
+  margin: auto;
+  margin-bottom: 1.7rem;
+  pointer-events: auto;
+  position: relative;
+  cursor: pointer;
+  transition: all .2s;
+}
+.disabledMachine{
+  box-shadow: unset !important;  
+  pointer-events: none;
+}
+.boxImgWashingMachine{
+  text-align: center;
+}
+.imgWashingMachine{
+  width: 221px;
+  margin: auto;
+}
+.washingMachine:hover{
+  /* opacity: .7; */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.795);
+}
+.washingMachine:hover::before{
+  visibility: visible;
+}
+.washingMachine::before{
+  visibility: hidden;
+  content: "เริ่มใช้งานเครื่องนี้";
+  position: absolute;
+  width: 220px;
+  height: 50px;
+  background: #9EB384;
+  box-shadow: 0 0 5px #222;
+  border-radius: 5px;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #FFF;
+  /* text-shadow: 0 0 10px #FFF; */
+}
+.clothesDryerZone .washingMachine{
+  width: 350px !important;
+  /* background: url(../public/imgs/ClothesDryer.svg) !important; */
+  /* background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position-y: -11px !important;
+  background-position-x: center !important; */
+} 
+.vendingMachine{
+  /* background-color: #000; */
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vendingMachine span{
+  font-size: 2rem;
+  color: #222;
+}
+.WMlid{
+  /* height: 78%; */
+  margin: 2rem 0 ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.WMlid .lid{
+  width: 200px;
+  height: 160px;
+  border-radius: 100%;
+  /* background-color: #000; */
+}
+.machineAmount{
+  text-align: center;
+  color: #222;
+  font-size: 1.8rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.machineAmount p{
+  margin: 0;
+}
+.machineAmount span{
+  font-size: 1.2rem;
+}
+.formCustom{
+  border: none !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  font-size: 3rem !important;
+  width: 200px !important;
+  text-align: center !important;
+}
+.modal-content{
+  background: #FFF !important;
+}
+.modal-header{
+  border-bottom: none !important;
+}
+.modal-footer{
+  justify-content: center !important;
+  border-top: none !important;
+}
+.imgCoin{
+  width: 35px;
+  margin: auto;
+  /* margin-right: 5px; */
+}
+.imgClear{
+  width: 26px;
+  margin: auto;
+  /* margin-right: 5px; */
+}
+.btnUp{
+  background-color: #84B9EF !important;
+  color: #222 !important;
+  border: none !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  height: 45px !important;
+}
+.btnClear{
+  background: #FF5D5D !important;
+  color: #222 !important;
+  border: none !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  height: 45px !important;
+}
+.btnUp:active,
+.btnClear:active{
+  opacity: .8;
+}
+.textAlert{
+  text-align: center;
+  font-size: .8rem;
+  color: #FF5D5D !important;
+}
+.modalSucess {
+  text-align: center;
+  padding-bottom: 2rem;
+}
+.modalSucess .modal-title{
+  font-size: 2.7rem;
+}
+.modalSucess p{
+  margin-bottom: 0;
+}
+.loadingSpin{
+  width: 100% !important;
+  height: 20px !important;
+}
+.loadingSpin svg{
+  width: 20px;
+  height: 20px !important;
+  vertical-align:unset !important;
+}
+.btnStartProcess{
+  width: 170px;
+  height: 40px;
+  background-color: #9EB38480 !important;
+  border: none !important;
+  color: #222 !important;
+}
+.imgGo{
+  width: 20px !important;
+  margin-right: 3px;
+}
+.modalMachine .modal-body{
+  height: 230px !important;
+}
+/* .modalMachine .modal-content{
+  border: 2px solid #84B9EF !important;
+} */
+.modalMachine .modal-footer{
+  padding-bottom: 2rem;
+}
+.btn-close{
+  background: url(../public/imgs/close.svg) !important;
+  background-size: 25px !important;
+  opacity: 1 !important;
+  background-repeat: no-repeat !important;
+}
+.btn-close:focus{
+ outline: none !important;
+ box-shadow: none !important;
+}
+.modalSuccess{
+  text-align: center;
+}
+.modalSuccess .modal-title{
+  color: #9EB384;
+}
+.imgSuccess{
+  width: 300px;
+}
+.btnCloseSuccess{
+  width: 120px;
+  height: 50px;
+  background: #9EB38480 !important;
+  color: #222 !important;
+  border: none !important;
+}
+.boxFormInput{
+  display: flex;
+  justify-content: center;
+}
+.zoneBtn{
+  display: grid;
+}
+.zoneInput input{
+  max-height: 100vh;
+  height: 100%;
+}
+input[type=number] {
+  -moz-appearance:textfield; /* Firefox */
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
