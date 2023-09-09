@@ -128,8 +128,8 @@ function ModalWashingMachine(props) {
     }
 
     // useEffect(() => {
-    //     console.log(props.typeDryer);
-    //     // showModalSuccess()
+    //     // console.log(props.typeDryer);
+    //     showModalSuccess()
     // }, [props.typeDryer]);
     return (
         <>
@@ -198,9 +198,9 @@ function ModalWashingMachine(props) {
                 <Modal.Body>
                     <div className='modalSuccess'>
                         <Modal.Title>สำเร็จ</Modal.Title>
-                        <p className='mb-0'>เครื่องซักผ้ากำลังเริ่มต้นทำงาน ใช้เวลาประมาณ 30 นาที</p>
+                        <p className='mb-0'>เครื่องซักผ้ากำลังเริ่มต้นทำงาน <br className='showBr'/> ใช้เวลาประมาณ 30 นาที</p>
                         <p>
-                            ระบบจะทำการแจ้งเตือนไปยัง Line ของท่าน ก่อนเครื่อง<br/>ทำงานเสร็จ 1 นาที เพื่อให้ท่านเตรียมตัวนำผ้าออกจากเครื่อง
+                            ระบบจะทำการแจ้งเตือนไปยัง <br className='showBr'/> Line ของท่าน ก่อนเครื่อง<br/>ทำงานเสร็จ 1 นาที เพื่อให้ท่านเตรียม<br className='showBr'/>ตัวนำผ้าออกจากเครื่อง
                         </p>
                         <img src={require('./../images/success.png')} alt="" className='imgSuccess'/>
                     </div>

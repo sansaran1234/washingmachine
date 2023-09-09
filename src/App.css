@@ -375,7 +375,11 @@ input::-webkit-inner-spin-button {
   .washRoomMobile{
     display: none;
   }
- 
+}
+@media(min-width:426px){
+  .showBr{
+    display: none;
+  }
 }
 @media(max-width:1440px){
   .clothesDryerZone .washingMachine{
@@ -527,7 +531,14 @@ input::-webkit-inner-spin-button {
     width: 90%;
   }
 }
+
 @media(max-width:425px){
+  .showBr{
+    display: unset;
+  }
+  .imgInModal,.imgSuccess {
+    width: 100%;
+  }
   .vendingMachine span {
     font-size: 1.2rem;
   }
@@ -557,6 +568,9 @@ input::-webkit-inner-spin-button {
   }
 }
 @media(max-width:375px){
+  .modalMachine .modal-title{
+    font-size: 1.3rem;
+  }
   .textAlertCountdown{
     font-size: .5rem;
   }
