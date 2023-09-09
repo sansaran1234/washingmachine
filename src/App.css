@@ -233,6 +233,9 @@ html,body{
   margin: auto;
   /* margin-right: 5px; */
 }
+.fontSizeAlet{
+  font-size: 21px;
+}
 .btnUp{
   background-color: #84B9EF !important;
   color: #222 !important;
@@ -290,12 +293,16 @@ html,body{
   width: 20px !important;
   margin-right: 3px;
 }
-.modalMachine .modal-body{
+/* .modalMachine .modal-body{
   height: 230px !important;
-}
+} */
 /* .modalMachine .modal-content{
   border: 2px solid #84B9EF !important;
 } */
+.imgInModal{
+  width: 350px;
+  margin: auto;
+}
 .modalMachine .modal-footer{
   padding-bottom: 2rem;
 }
@@ -305,7 +312,7 @@ html,body{
   opacity: 1 !important;
   background-repeat: no-repeat !important;
 }
-.btn-close:focus{
+.btn-close:focus,.nav-link:focus{
  outline: none !important;
  box-shadow: none !important;
 }
@@ -317,6 +324,10 @@ html,body{
 }
 .imgSuccess{
   width: 300px;
+}
+.imgClose{
+  width: 20px;
+  margin-right: .3rem;
 }
 .btnCloseSuccess{
   width: 120px;
@@ -344,6 +355,9 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+.textAlertCountdown{
+  padding-top: 1.5rem !important;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -352,3 +366,231 @@ input::-webkit-inner-spin-button {
     transform: rotate(360deg);
   }
 }
+@media(min-width:992px){
+  .noneDesktop{
+    display: none !important;
+  }
+}
+@media(min-width:1201px){
+  .washRoomMobile{
+    display: none;
+  }
+ 
+}
+@media(max-width:1440px){
+  .clothesDryerZone .washingMachine{
+    width: 100% !important;
+  }
+  .washingMachine{
+    width: 100%;
+    height: 380px !important;
+    margin-bottom: 1.2rem;
+  }
+  .imgWashingMachine{
+    width: 200px;
+  }
+  .vendingMachine span{
+    font-size: 1.6rem;
+  }
+  .machineAmount{
+    font-size: 1.4rem;
+  }
+  .washingMachine::before{
+    width: 190px;
+    font-size: 1.1rem;
+  }
+  .App-header {
+    padding-right: 37rem;
+  }
+}
+@media(max-width:1200px){
+  .washRoomMobile{
+    display: block !important;
+    padding: 2rem 0;
+  }
+  /* .washRoomDesktop{
+    display: none !important;
+  } */
+  .washRoomMobile .nav-tabs{
+    width: 100%;
+  }
+  .washRoomMobile .nav-item{
+    width: 49%;
+    display: flex !important;
+    align-items: end !important;
+  }
+  .washRoomMobile .nav-item .nav-link{
+    width: 100%;
+    background: #FFF;
+    transition: all .4s;
+    border: none !important;
+    border-radius: 8px !important;
+    color: #222;
+  }
+  .washRoomMobile .nav-item .nav-link.active{
+    width: 100%;
+    background: #555;
+    font-size: 1.4rem;
+    color: #FFF !important;
+  }
+  .bgClothesDryer{
+    background: #FF5D5D !important;
+  }
+  .nav-tabs{
+    border: none;
+  }
+  .tabCustom{
+    display: flex;
+    justify-content: space-around;
+  }
+  .App-header {
+    padding-right: 30rem;
+  }
+}
+@media(max-width:1024px){
+  .App-header {
+    padding-right: 20rem;
+  }
+  .imgWashingMachine {
+    width: 170px;
+  }
+  .washingMachine {
+    height: 350px !important;
+    margin-bottom: 1.2rem;
+  }
+  .washingMachine::before {
+    width: 170px;
+  }
+  .vendingMachine span {
+    font-size: 1.4rem;
+  }
+}
+@media(max-width:991px){
+  .App-header {
+    padding-right: 0rem;
+  }
+  .washingMachine::before{
+    content: unset !important
+    /* visibility: hidden !important; */
+  }
+  .washingMachineZone,
+  .clothesDryerZone{
+    height: auto;
+  }
+  .washRoomMobile .nav-tabs{
+    border:none;
+  }
+  .clothesDryerZone .washingMachine{
+    width: 100% !important;
+  }
+}
+@media(max-width:767.98px){
+  .App-header{
+    background-position: center;
+  }
+  .fontSizeAlet{
+    font-size: 18px;
+  }
+}
+
+@media(max-width:575.98px){
+  .imgWashingMachine{
+    width: 80%;
+  }
+  .vendingMachine span {
+    font-size: 1.4rem;
+  }
+  .machineAmount{
+    font-size: 1.2rem;
+  }
+  .machineAmount span{
+    font-size: 1rem;
+  }
+  .App-header h1{
+    font-size: 2rem;
+  }
+  .App-header h2{
+    font-size: 3.5rem;
+  }
+  .fontSizeAlet{
+    font-size: 16px;
+  }
+  .textAlertCountdown{
+    font-size: .8rem;
+  }
+}
+@media(max-width:510px){
+  .washingMachine{
+    height: 350px !important;
+  }
+  .imgWashingMachine{
+    width: 90%;
+  }
+}
+@media(max-width:425px){
+  .vendingMachine span {
+    font-size: 1.2rem;
+  }
+  .machineAmount{
+    font-size: 1rem;
+  }
+  .machineAmount span{
+    font-size: .8rem;
+  }
+  .washingMachine {
+    height: 280px !important;
+  }
+  .vendingMachine{
+    height: 60px;
+  }
+  .App-header h1{
+    font-size: 1.8rem;
+  }
+  .App-header h2{
+    font-size: 3.2rem;
+  }
+  .fontSizeAlet{
+    font-size: 14px;
+  }
+  .textAlertCountdown{
+    padding-top: .8rem !important;
+  }
+}
+@media(max-width:375px){
+  .textAlertCountdown{
+    font-size: .5rem;
+  }
+  .vendingMachine span {
+    font-size: 1rem;
+  }
+  .washingMachine {
+    height: 240px !important;
+  }
+  .vendingMachine{
+    height: 45px;
+  }
+  .washRoomMobile .nav-item .nav-link.active{
+    font-size: 1.2rem;
+  }
+  .fontSizeAlet{
+    font-size: 12px;
+  }
+}
+@media(max-width:325px){
+  .washingMachineZone .col-lg-4.col-6{
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .fontSizeAlet{
+    padding-top: 1.3rem !important;
+    font-size: 8px !important;
+  }
+  .vendingMachine span{
+    font-size: .9rem;
+  }
+  .washingMachine {
+    height: 215px !important;
+}
+}
+
+

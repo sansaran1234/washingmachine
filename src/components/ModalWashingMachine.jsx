@@ -24,6 +24,22 @@ function ModalWashingMachine(props) {
     const [cookie3, setCookie3, removeCookie3] = useCookies(
         ['isWorking_numberMachine_3'],
     );
+    const [cookie4, setCookie4, removeCookie4] = useCookies(
+        ['isWorking_numberMachine_4'],
+    );
+    const [cookie5, setCookie5, removeCookie5] = useCookies(
+        ['isWorking_numberMachine_5'],
+    );
+    const [cookie6, setCookie6, removeCookie6] = useCookies(
+        ['isWorking_numberMachine_6'],
+    );
+
+    const [cookieDry, setCookieDry, removeCookieDry] = useCookies(
+        ['isWorking_numberClothesDryer_1'],
+    );
+    const [cookieDry2, setCookieDry2, removeCookieDry2] = useCookies(
+        ['isWorking_numberClothesDryer_2'],
+    );
 
     const showModalSuccess = () =>{
         setShowSuccess(true)
@@ -46,11 +62,10 @@ function ModalWashingMachine(props) {
         setCheckAlert(false)
     }
     const startMachine = () =>{
-        if (valueNum < props.priceMachine) {
+        if (valueNum < props.priceMachine || valueNum < props.priceMachineDry) {
             setCheckAlert(true)
         }else{
             setIsLoading(true)
-            console.log(props.numberMachine);
             if (props.numberMachine === 1) {
                 setCookie('isWorking_numberMachine_1', 1, {
                     path: '/',
@@ -69,6 +84,37 @@ function ModalWashingMachine(props) {
                     sameSite: true
                 })
             }
+            if (props.numberMachine === 4) {
+                setCookie4('isWorking_numberMachine_4', 4, {
+                    path: '/',
+                    sameSite: true
+                })
+            }
+            if (props.numberMachine === 5) {
+                setCookie5('isWorking_numberMachine_5', 5, {
+                    path: '/',
+                    sameSite: true
+                })
+            }
+            if (props.numberMachine === 6) {
+                setCookie6('isWorking_numberMachine_6', 6, {
+                    path: '/',
+                    sameSite: true
+                })
+            }
+            if (props.numberMachineDry === 1) {
+                setCookieDry('isWorking_numberClothesDryer_1', 1, {
+                    path: '/',
+                    sameSite: true
+                })
+            }
+            if (props.numberMachineDry === 2) {
+                setCookieDry2('isWorking_numberClothesDryer_2', 2, {
+                    path: '/',
+                    sameSite: true
+                })
+            }
+            // console.log(props.numberMachineDry);
             setTimeout(() => {
                 setIsLoading(false)
                 setCheckAlert(false)
@@ -80,16 +126,24 @@ function ModalWashingMachine(props) {
             }, 800);
         }
     }
+
     // useEffect(() => {
-    //     showModalSuccess()
-    // }, []);
+    //     console.log(props.typeDryer);
+    //     // showModalSuccess()
+    // }, [props.typeDryer]);
     return (
         <>
             <Modal show={props.show} onHide={handleClose} className='modalMachine'>
                 <Modal.Header closeButton>
                 </Modal.Header>
-                <Modal.Body>
-                    <Modal.Title className='text-center mb-3'>เครื่องซักผ้า ขนาน {props.amountMachine} KG {props.priceMachine} บาท</Modal.Title>
+                <Modal.Body className='text-center'>
+                    <Modal.Title className='text-center mb-3'>
+                        
+                        {props.typeDryer === true ? 'เครื่องอบผ้า ขนาน ': 'เครื่องซักผ้า ขนาน '}
+                        {props.typeDryer === true ? props.amountMachineDry :props.amountMachine} KG 
+                        {' '}
+                        {props.typeDryer === true ? props.priceMachineDry :props.priceMachine} บาท
+                    </Modal.Title>
                     <Form>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <div className='text-center'>
@@ -123,6 +177,7 @@ function ModalWashingMachine(props) {
                             }
                         </Form.Group>
                     </Form>
+                    <img className='imgInModal' src={require('./../images/modalMoney.png')} alt="" />
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="primary" className='btnStartProcess' onClick={startMachine}>
@@ -151,6 +206,7 @@ function ModalWashingMachine(props) {
                     </div>
                     <div className='text-center pt-4 pb-2'>
                         <Button variant="primary" className='btnCloseSuccess' onClick={handleCloseSuccess}>
+                            <img src={require('./../images/close.png')} alt="" className='imgClose'/>
                             ปิด
                         </Button>
                     </div>

@@ -63,8 +63,8 @@ const postData = {
 const sendLineNotify = async () => {
   try {
     const response = await axios.post("/api/Notify.service", postData);
-    console.log("LINE Notify Response:", response.data);
+    // console.log("LINE Notify Response:", response.data);
   } catch (error) {
-    console.error("Error sending LINE Notify:", error);
+    // console.error("Error sending LINE Notify:", error);
   }
 };
