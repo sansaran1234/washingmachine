@@ -49,9 +49,7 @@ html,body{
   text-align: center;
 }
 
-.roomPage .container-fluid{
- height: 100vh;
-}
+
 .washingMachineZone{
   background-color: #FBE4C9;
   width: 100%;
@@ -299,6 +297,14 @@ html,body{
 /* .modalMachine .modal-content{
   border: 2px solid #84B9EF !important;
 } */
+.boxScanLine img{
+  width: 150px;
+}
+.textScan{
+  color: #222;
+  font-size: 1rem;
+  margin-top: 1.7rem;
+}
 .imgInModal{
   width: 350px;
   margin: auto;
@@ -358,6 +364,33 @@ input::-webkit-inner-spin-button {
 .textAlertCountdown{
   padding-top: 1.5rem !important;
 }
+.manualPage{
+  min-height: 100vh;
+  background: url(../src/images/bgManual.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.btnManual {
+  background: #84B9EF !important;
+  border: none !important;
+  padding: 10px 30px !important;
+  
+}
+.btnManual a{
+  color: #222;
+  text-decoration: none !important;
+}
+.manualPage{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.manualPage ul{
+  list-style: auto;
+}
+.boxTextManual{
+  width: 500px;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -373,6 +406,11 @@ input::-webkit-inner-spin-button {
 }
 @media(min-width:1201px){
   .washRoomMobile{
+    display: none;
+  }
+}
+@media(min-width:576px){
+  .imgBgShowMobile{
     display: none;
   }
 }
@@ -452,6 +490,9 @@ input::-webkit-inner-spin-button {
   }
 }
 @media(max-width:1024px){
+  .boxTextManual {
+    width: 420px;
+  }
   .App-header {
     padding-right: 20rem;
   }
@@ -470,6 +511,14 @@ input::-webkit-inner-spin-button {
   }
 }
 @media(max-width:991px){
+  
+  .boxTextManual {
+    margin-left: auto !important;
+    margin-right: none !important;
+  }
+  .manualPage{
+    background-position-x:-150px;
+  }
   .App-header {
     padding-right: 0rem;
   }
@@ -498,6 +547,22 @@ input::-webkit-inner-spin-button {
 }
 
 @media(max-width:575.98px){
+  .imgBgShowMobile{
+    text-align: center;
+  }
+  .imgBgShowMobile img{
+    width: 300px;
+    margin: auto;
+  }
+  .manualPage{
+    background: unset !important;
+    background-color: #FFF !important;
+  }
+  .boxTextManual {
+    margin: auto !important;
+    width: 400px;
+    padding-top: 4rem;
+  }
   .imgWashingMachine{
     width: 80%;
   }
@@ -533,6 +598,12 @@ input::-webkit-inner-spin-button {
 }
 
 @media(max-width:425px){
+  .imgBgShowMobile img{
+    width: 250px;
+  }
+  .boxTextManual {
+    width: 100%;
+  }
   .showBr{
     display: unset;
   }

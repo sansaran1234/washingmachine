@@ -11,7 +11,13 @@ function App() {
             <header className="App-header">
                 <h1>เครื่องซักผ้าหยอดเหรียญ</h1>
                 <h2>ซักสบาย</h2>
-                {/* <WashingMachine /> */}
+                <Button className='btnManual'>
+                    <a href='#manualPage'>ขั้นตอนการทำงาน</a>
+                </Button>
+                <div className='boxScanLine'>
+                    <p className='textScan'>สแกน QR CODE <br/> เพื่อรับการแจ้งเตือนจากระบบ</p>
+                    <img src={require('./images/scan_line.jpg')} alt="" />
+                </div>
             </header>
         </div>
     );

@@ -144,6 +144,7 @@ function ModalWashingMachine(props) {
                         {' '}
                         {props.typeDryer === true ? props.priceMachineDry :props.priceMachine} บาท
                     </Modal.Title>
+                    
                     <Form>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <div className='text-center'>

@@ -7,9 +7,8 @@ import { Col } from 'react-bootstrap';
 import React, { useState, useEffect, useRef } from 'react';
 import ModalWashingMachine from './ModalWashingMachine'
 import { useCookies } from 'react-cookie';
-// import { sendLineNotifyMessage } from '../service/apis/line-notify';
 import axios from "axios";
-// import Express  from 'express';
+
 function WashingMachine(props) {
     const [show, setShow] = useState(false);
     const [numberMachine, setNumberMachine] = useState(0);
@@ -53,66 +52,11 @@ function WashingMachine(props) {
         setAmountMachine(amount)
         setPriceMachine(price)
     }
-    const [seconds , setSeconds] = useState(15)
-
-    const tokenLine = 'eKp2RdTcquOoWiorsJNNLOc1tjlg6iEu3kMnNmCSBgO'
-
-    const instance = axios.create({
-        baseURL: 'https://notify-api.line.me',
-        headers: { 
-            "Content-Type": "application/x-www-form-urlencoded", 
-            Authorization: 'Bearer eKp2RdTcquOoWiorsJNNLOc1tjlg6iEu3kMnNmCSBgO',
-            "Access-Control-Allow-Origin": "*",
-        }
-    });
-    // const instance = axios.create({
-    //     baseURL: 'https://notify-api.line.me', // Replace with your API's base URL
-    //   });
-    // const headers = {
-    //     Authorization: 'Bearer eKp2RdTcquOoWiorsJNNLOc1tjlg6iEu3kMnNmCSBgO',
-    //     'Content-Type': 'application/x-www-form-urlencoded', // You can set other headers as needed
-    //   };
-    // const notifyLineAlert = async (number) =>{
-    //     const text = 'เครื่องซักผ้าหมายเลข '+number+ ' เหลือเวลาอีก 1 นาที'
-    //     // await NOTIFY(messege)
-    //     // try {
-    //     //     // const response = await instance.post('/api/notify', {
-    //     //     //   message: text,
-    //     //     // });
-    //     //     const response = await instance.post("/api/notify/",{
-    //     //         // headers:headers,
-    //     //         message:text
-    //     //     }).then((res)=>{
-    //     //         console.log(res);
-    //     //     })
-    //     //   } catch (error) {
-    //     //     console.error(error);
-    //     //   }
-    //     var bodyFormData = new FormData();
-    //     bodyFormData.append('message', 'Fred');
-    //     axios({
-    //         method: "post",
-    //         url: "https://notify-api.line.me/api/notify",
-    //         data: bodyFormData,
-    //         headers: { "Content-Type": "application/x-www-form-urlencoded",
-    //         Authorization:"Bearer eKp2RdTcquOoWiorsJNNLOc1tjlg6iEu3kMnNmCSBgO",
-    //         "Access-Control-Allow-Origin": "*" },
-    //     })
-    //         .then(function (response) {
-    //         //handle success
-    //         console.log(response);
-    //         })
-    //         .catch(function (response) {
-    //         //handle error
-    //         console.log(response);
-    //     });
-    // }
-    
-    // const axios = require('axios');
+    const [seconds , setSeconds] = useState(120)
 
     const notifyLineAlert = async (number) => {
         const text = 'เครื่องซักผ้าหมายเลข ' + number + ' เหลือเวลาอีก 1 นาที';
-        const accessToken = 'eKp2RdTcquOoWiorsJNNLOc1tjlg6iEu3kMnNmCSBgO'; // แทน YOUR_ACCESS_TOKEN ด้วย Access Token ของคุณ
+        const accessToken = 'eKp2RdTcquOoWiorsJNNLOc1tjlg6iEu3kMnNmCSBgO'; 
         try {
             const response = await axios({
                 method: 'post',
@@ -127,66 +71,11 @@ function WashingMachine(props) {
                 },
             });
 
-            console.log(response.data); // แสดงข้อมูลที่ได้รับจาก Line Notify API
+            console.log(response.data); 
         } catch (error) {
             console.error(error);
         }
     };
-
-// const express = require('express');
-// const axios = require('axios');
-
-// const app = express();
-// const port = 3001; // กำหนดพอร์ตของเซิร์ฟเวอร์
-
-// // กำหนดหัวข้อความ CORS สำหรับโดเมนของคุณ
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
-//   res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
-//   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-//   next();
-// });
-
-// app.use(express.json());
-
-// app.post('/send-notification', async (req, res) => {
-//   const text = 'ข้อความที่คุณต้องการส่งไปยัง Line Notify';
-//   const accessToken = 'YOUR_ACCESS_TOKEN'; // แทน YOUR_ACCESS_TOKEN ด้วย Access Token ของคุณ
-
-//   try {
-//     const response = await axios.post('https://notify-api.line.me/api/notify', `message=${text}`, {
-//       headers: {
-//         'Content-Type': 'application/x-www-form-urlencoded',
-//         'Authorization': `Bearer ${accessToken}`,
-//       },
-//     });
-//     res.json(response.data);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: 'เกิดข้อผิดพลาดในการส่งข้อความ' });
-//   }
-// });
-
-// app.listen(port, () => {
-//   console.log(`เซิร์ฟเวอร์พร็อกซีกำลังทำงานบนพอร์ต ${port}`);
-// });
-
-
-
-      
-    // const sendLineNotify = async (number) => {
-    //     const postData = {
-    //         message: 'เครื่องซักผ้าหมายเลข ' +number+ ' เหลือเวลาอีก 1 นาที',
-    //     };
-    //     try {
-    //         const response = await sendLineNotifyMessage(postData);
-    //         // console.log(response);
-    //         // console.log("LINE Notify Response:", response.data);
-    //     } catch (error) {
-    //         console.log(error);
-    //         console.error("Error sending LINE Notify:", error);
-    //     }
-    // };
 
     const [timerOn1, setTimerOn1] = useState(true);
     const [textAlertSuccess1, setTextAlertSuccess1] = useState(false);
@@ -197,7 +86,6 @@ function WashingMachine(props) {
         <span style={{ color: '#222', fontSize: '21px', textAlign: 'center' }}> {props.time} </span>
     );
     useEffect(()=>{
-        // console.log(cookie.isWorking_numberMachine_1);
         const timer1 = (remaining) => {
             var m = Math.floor(remaining / 60);
             var s = remaining % 60;
@@ -209,8 +97,8 @@ function WashingMachine(props) {
             // if(remaining < 60){
             // }
             if (remaining >= 0) {
-                console.log('time1 ='+remaining);
-                if (remaining === 10) {
+                // console.log('time1 ='+remaining);
+                if (remaining === 60) {
                     notifyLineAlert(cookie.isWorking_numberMachine_1)
                 }
                 if (Ref.current) clearTimeout(Ref.current); 
@@ -230,17 +118,12 @@ function WashingMachine(props) {
                 }, 4000);
                 return <AlertMachine2 />
             }
-            // if (!timerOn1) {
-            //     // Do validate stuff here
-            //     return;
-            // }
+            
             
         };
         if (cookie.isWorking_numberMachine_1 === 1) {
             timer1(seconds)
         }
-        // removeCookie('isWorking_numberMachine_1')
-        // removeCookie('isWorking_numberMachine_2')
 
     },[cookie.isWorking_numberMachine_1])
 
@@ -261,7 +144,10 @@ function WashingMachine(props) {
             setCountdown2(m + ':' + s);
             remaining -= 1;
             if (remaining >= 0) {
-                console.log('time2 ='+remaining);
+                // console.log('time2 ='+remaining);
+                if (remaining === 60) {
+                    notifyLineAlert(cookie2.isWorking_numberMachine_2)
+                }
                 if (Ref2.current) clearTimeout(Ref2.current);
                 const id = setTimeout(function () {
                     timer2(remaining);
@@ -279,16 +165,11 @@ function WashingMachine(props) {
                 }, 4000);
                 return <AlertMachine2 />
             }
-            // if (!timerOn2) {
-            //     // Do validate stuff here
-            //     return;
-            // }
+            
         };
         if (cookie2.isWorking_numberMachine_2 === 2) {
             timer2(seconds)
         }
-        // removeCookie('isWorking_numberMachine_1')
-        // removeCookie('isWorking_numberMachine_2')
 
     },[cookie2.isWorking_numberMachine_2])
 
@@ -309,6 +190,9 @@ function WashingMachine(props) {
             setCountdown3(m + ':' + s);
             remaining -= 1;
             if (remaining >= 0) {
+                if (remaining === 60) {
+                    notifyLineAlert(cookie3.isWorking_numberMachine_3)
+                }
                 if (Ref3.current) clearTimeout(Ref3.current);
                 const id = setTimeout(function () {
                     timer3(remaining);
@@ -326,18 +210,11 @@ function WashingMachine(props) {
                 }, 4000);
                 return <AlertMachine3 />
             }
-            // if (!timerOn2) {
-            //     // Do validate stuff here
-            //     return;
-            // }
+            
         };
         if (cookie3.isWorking_numberMachine_3 === 3) {
             timer3(seconds)
         }
-        // removeCookie('isWorking_numberMachine_1')
-        // removeCookie2('isWorking_numberMachine_2')
-        // removeCookie3('isWorking_numberMachine_3')
-
     },[cookie3.isWorking_numberMachine_3])
 
     const [timerOn4, setTimerOn4] = useState(true);
@@ -357,6 +234,9 @@ function WashingMachine(props) {
             setCountdown4(m + ':' + s);
             remaining -= 1;
             if (remaining >= 0) {
+                if (remaining === 60) {
+                    notifyLineAlert(cookie4.isWorking_numberMachine_4)
+                }
                 if (Ref4.current) clearTimeout(Ref4.current);
                 const id = setTimeout(function () {
                     timer4(remaining);
@@ -374,19 +254,10 @@ function WashingMachine(props) {
                 }, 4000);
                 return <AlertMachine4 />
             }
-            // if (!timerOn2) {
-            //     // Do validate stuff here
-            //     return;
-            // }
         };
         if (cookie4.isWorking_numberMachine_4 === 4) {
             timer4(seconds)
         }
-        // removeCookie('isWorking_numberMachine_1')
-        // removeCookie2('isWorking_numberMachine_2')
-        // removeCookie3('isWorking_numberMachine_3')
-        // removeCookie4('isWorking_numberMachine_4')
-
     },[cookie4.isWorking_numberMachine_4])
 
     const [timerOn5, setTimerOn5] = useState(true);
@@ -406,6 +277,9 @@ function WashingMachine(props) {
             setCountdown5(m + ':' + s);
             remaining -= 1;
             if (remaining >= 0) {
+                if (remaining === 60) {
+                    notifyLineAlert(cookie5.isWorking_numberMachine_5)
+                }
                 if (Ref5.current) clearTimeout(Ref5.current);
                 const id = setTimeout(function () {
                     timer5(remaining);
@@ -423,19 +297,11 @@ function WashingMachine(props) {
                 }, 4000);
                 return <AlertMachine5 />
             }
-            // if (!timerOn2) {
-            //     // Do validate stuff here
-            //     return;
-            // }
+            
         };
         if (cookie5.isWorking_numberMachine_5 === 5) {
             timer5(seconds)
         }
-        // removeCookie('isWorking_numberMachine_1')
-        // removeCookie2('isWorking_numberMachine_2')
-        // removeCookie3('isWorking_numberMachine_3')
-        // removeCookie4('isWorking_numberMachine_4')
-
     },[cookie5.isWorking_numberMachine_5])
 
     const [timerOn6, setTimerOn6] = useState(true);
@@ -455,6 +321,9 @@ function WashingMachine(props) {
             setCountdown6(m + ':' + s);
             remaining -= 1;
             if (remaining >= 0) {
+                if (remaining === 60) {
+                    notifyLineAlert(cookie6.isWorking_numberMachine_6)
+                }
                 if (Ref6.current) clearTimeout(Ref6.current);
                 const id = setTimeout(function () {
                     timer6(remaining);
@@ -472,19 +341,10 @@ function WashingMachine(props) {
                 }, 4000);
                 return <AlertMachine6 />
             }
-            // if (!timerOn2) {
-            //     // Do validate stuff here
-            //     return;
-            // }
         };
         if (cookie6.isWorking_numberMachine_6 === 6) {
             timer6(seconds)
         }
-        // removeCookie('isWorking_numberMachine_1')
-        // removeCookie2('isWorking_numberMachine_2')
-        // removeCookie3('isWorking_numberMachine_3')
-        // removeCookie4('isWorking_numberMachine_4')
-
     },[cookie6.isWorking_numberMachine_6])
 
     return (
@@ -496,9 +356,7 @@ function WashingMachine(props) {
                         <div className='vendingMachine'>
                             <span>หมายเลขเครื่อง 1</span>
                         </div>
-                        {/* <div className='WMlid'>
-                            <div className='lid'></div>
-                        </div> */}
+                        
                         {cookie.isWorking_numberMachine_1 === 1 ? 
                             <div className={'boxImgWashingMachine'}>
                                 <img src={require('./../images/washing-machine-error.png')} alt="" className='imgWashingMachine'/>

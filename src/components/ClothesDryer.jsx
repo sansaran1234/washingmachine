@@ -18,7 +18,7 @@ function ClothesDryer(props) {
     const [countdown2, setCountdown2] = useState('3:00');
     const Ref = useRef(null);
     const Ref2 = useRef(null);
-    const [seconds , setSeconds] = useState(15)
+    const [seconds , setSeconds] = useState(120)
 
     const handleShow = () => setShow(true);
     const showModal = (number,amount,price) =>{
