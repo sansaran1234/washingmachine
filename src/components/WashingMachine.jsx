@@ -64,7 +64,7 @@ function WashingMachine(props) {
                 data: `message=${text}`,
                 headers: {
                     "Access-Control-Allow-Origin": "*",
-                    'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, OPTIONS',
+                    'Access-Control-Allow-Methods': 'POST',
                     'Access-Control-Allow-Headers': 'Content-Type, Authorization',
                     'Content-Type': 'application/x-www-form-urlencoded',
                     'Authorization': `Bearer ${accessToken}`,

@@ -376,9 +376,11 @@ input::-webkit-inner-spin-button {
   padding: 10px 30px !important;
   
 }
-.btnManual a{
-  color: #222;
+.tagAManual{
   text-decoration: none !important;
+}
+.tagAManual .btn{
+  color: #222 !important;
 }
 .manualPage{
   display: flex;
